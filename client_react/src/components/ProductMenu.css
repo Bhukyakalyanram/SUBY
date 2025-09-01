@@ -1,0 +1,89 @@
+/* ProductsMenu.css */
+
+/* Container */
+.dashboardContainer {
+  max-width: 1200px;
+  margin: 80px auto 40px auto; /* top spacing for TopBar */
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Heading */
+.dashboardContainer h2 {
+  text-align: center;
+  color: #ff6347;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+/* Grid for dishes */
+.popularGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Dish card */
+.dishCard {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+.dishCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Dish image */
+.dishCard img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Dish info */
+.dishCard h4 {
+  margin: 10px 0 5px;
+  color: #333;
+  text-align: center;
+}
+
+.dishCard p {
+  margin: 0 0 10px;
+  color: #555;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Add to cart button */
+.dishCard button {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ff6347;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.dishCard button:hover {
+  background-color: #e5533c;
+  transform: translateY(-2px);
+}
+
+/* Empty state */
+.dashboardContainer p {
+  text-align: center;
+  color: #555;
+  font-size: 1rem;
+  margin-top: 40px;
+}
