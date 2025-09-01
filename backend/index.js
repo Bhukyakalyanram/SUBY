@@ -18,8 +18,7 @@ const PORT = process.env.PORT || 4000;
 app.use(
   cors({
     origin: [
-      'http://localhost:5173',
-      'http://localhost:5174', // for local dev
+      'http://localhost:5173', // for local dev
       'https://suby-cyan.vercel.app',
       'https://suby-8cob.vercel.app',
     ],
