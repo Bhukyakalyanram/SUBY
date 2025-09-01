@@ -22,17 +22,13 @@ const allowedOrigins = [
 
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin) return callback(null, true); // allow tools like Postman
-      if (allowedOrigins.includes(origin)) {
-        callback(null, true); // allow this origin
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
+    origin: [
+      'http://localhost:5173', // for local dev
+      'https://suby-cyan.vercel.app',
+      'https://suby-8cob.vercel.app',
+    ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true, // required for cookies/auth
+    credentials: true, // keep this true if using cookies/auth
   })
 );
 
