@@ -16,7 +16,7 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 const allowedOrigins = [
-  'https://suby-cyan.vercel.app', // Vite dev server
+  'https://suby-cyan.vercel.app/', // Vite dev server
 ];
 
 app.use(
