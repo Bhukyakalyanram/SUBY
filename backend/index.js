@@ -24,7 +24,7 @@ app.use(
   cors({
     origin: [
       'http://localhost:5173', // for local dev
-      'https://suby-cyan.vercel.app',
+      'https://suby-cyan.vercel.ap',
       'https://suby-8cob.vercel.app',
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
