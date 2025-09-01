@@ -23,7 +23,7 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: [
-      'http://localhost:5173', // for local dev
+      'http://localhost:51', // for local dev
       'https://suby-cyan.vercel.app',
       'https://suby-8cob.vercel.app',
     ],
