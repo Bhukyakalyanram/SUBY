@@ -10,7 +10,6 @@ const AllProducts = () => {
       const response = await fetch(`${API_URL}/product/${firmId}/products`);
       const newProductsData = await response.json();
       setProducts(newProductsData.products);
-      console.log(newProductsData);
     } catch (error) {
       console.error('failed to fetch products', error);
       alert('failed to fetch products');
@@ -19,7 +18,6 @@ const AllProducts = () => {
 
   useEffect(() => {
     productsHandler();
-    console.log('this is useEffect');
   }, []);
 
   const deleteProductById = async (productId) => {
@@ -60,7 +58,7 @@ const AllProducts = () => {
                 <td>
                   {item.image && (
                     <img
-                      src={`${API_URL}/uploads/${item.image}`}
+                      src={`${item.image}`}
                       alt={item.productName}
                       style={{ width: '50px', height: '50px' }}
                     />

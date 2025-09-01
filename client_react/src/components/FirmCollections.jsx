@@ -77,10 +77,7 @@ const FirmCollections = () => {
                 >
                   <div className="firmGroupBox">
                     <div className="firmGroup">
-                      <img
-                        src={`${API_URL}/uploads/${item.image}`}
-                        alt={item.firmName}
-                      />
+                      <img src={`${item.image}`} alt={item.firmName} />
                       <div className="firmOffer">{item.offer}</div>
                     </div>
                     <div className="firmDetails">

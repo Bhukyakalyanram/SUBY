@@ -1,22 +1,34 @@
 const Firm = require('../models/Firm');
 const Product = require('../models/Product');
 const multer = require('multer');
-const path = require('path');
+const { v2: cloudinary } = require('cloudinary');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'uploads/');
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname));
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME, // e.g. dtl5cjed3
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+// Use Cloudinary storage for multer
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: 'suby_products', // optional folder in your Cloudinary
+    allowed_formats: ['jpg', 'jpeg', 'png'],
+    transformation: [{ width: 800, height: 800, crop: 'limit' }],
   },
 });
-const upload = multer({ storage: storage });
+
+const upload = multer({ storage });
+
+// --- rest of your logic remains unchanged ---
 
 const addProduct = async (req, res) => {
   try {
     const { productName, price, category, bestSeller, description } = req.body;
-    const image = req.file ? req.file.filename : undefined;
+    const image = req.file ? req.file.path : undefined; // cloudinary url
 
     const firmId = req.params.firmId;
     const firm = await Firm.findById(firmId);
@@ -77,7 +89,6 @@ const deleteProductById = async (req, res) => {
 
 const getPopularProducts = async (req, res) => {
   try {
-    // Fetch products where popular is true
     const products = await Product.find({ bestSeller: true });
     res.status(200).json({ products });
   } catch (err) {

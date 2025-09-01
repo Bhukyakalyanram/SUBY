@@ -70,7 +70,9 @@ const AddFirm = () => {
         setOffer('');
         setFile(null);
         alert('Firm added Successfully');
+        console.log(data);
         localStorage.setItem('firmId', data.firmId || '');
+        localStorage.setItem('firmName', data.firmName || '');
         window.location.reload();
       } else {
         alert(data.message || 'Failed to add Firm');

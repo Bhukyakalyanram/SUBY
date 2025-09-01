@@ -89,10 +89,7 @@ const Chains = () => {
                 <div className="firmBox" key={item._id || item.firmName}>
                   <div>{item.firmName}</div>
                   <div className="firmImage">
-                    <img
-                      src={`${API_URL}/uploads/${item.image}`}
-                      alt={item.firmName}
-                    />
+                    <img src={`${item.image}`} alt={item.firmName} />
                   </div>
                 </div>
               ))}

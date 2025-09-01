@@ -68,10 +68,7 @@ const FoodDashboard = () => {
           <div className="popularGrid">
             {popular.map((item) => (
               <div className="dishCard" key={item._id}>
-                <img
-                  src={`${API_URL}/uploads/${item.image}`}
-                  alt={item.productName}
-                />
+                <img src={`${item.image}`} alt={item.productName} />
                 <h4>{item.productName}</h4>
                 <p>₹{item.price}</p>
                 <button onClick={() => handleAddToCart(item)}>
@@ -97,10 +94,7 @@ const FoodDashboard = () => {
                   className="restaurantCard"
                   key={rest._id}
                 >
-                  <img
-                    src={`${API_URL}/uploads/${rest.image}`}
-                    alt={rest.firmName}
-                  />
+                  <img src={`${rest.image}`} alt={rest.firmName} />
                   <div className="restaurantInfo">
                     <h4>{rest.firmName}</h4>
                     <p>{rest.region.join(', ')}</p>

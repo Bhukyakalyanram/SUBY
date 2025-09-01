@@ -34,8 +34,8 @@ const OrdersPage = () => {
               {order.items.map((item) => (
                 <div className="orderItem" key={item.product._id}>
                   <img
-                    src={`${API_URL}/uploads/${item.product.image}`}
-                    alt={item.product.productName}
+                    src={`${item.product?.image}`}
+                    alt={item.product?.productName}
                   />
                   <div className="itemInfo">
                     <h4>{item.product.productName}</h4>

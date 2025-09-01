@@ -60,10 +60,7 @@ const ProductsMenu = () => {
           {products.length > 0 ? (
             products.map((item) => (
               <div className="dishCard" key={item._id}>
-                <img
-                  src={`${API_URL}/uploads/${item.image}`}
-                  alt={item.productName}
-                />
+                <img src={`${item.image}`} alt={item.productName} />
                 <h4>{item.productName}</h4>
                 <p>₹{item.price}</p>
                 <button onClick={() => handleAddToCart(item)}>

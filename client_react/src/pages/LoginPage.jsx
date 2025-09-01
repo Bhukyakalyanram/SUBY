@@ -31,7 +31,6 @@ const LoginPage = () => {
         if (pending) {
           const product = JSON.parse(pending);
           addToCart(product);
-          toast.success(`${product.productName} added to cart!`);
           localStorage.removeItem('pendingProduct');
         }
 

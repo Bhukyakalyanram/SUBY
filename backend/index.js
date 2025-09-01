@@ -15,15 +15,11 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-const allowedOrigins = [
-  'https://suby-cyan.vercel.app',
-  'https://suby-8cob.vercel.app',
-];
-
 app.use(
   cors({
     origin: [
-      'http://localhost:5173', // for local dev
+      'http://localhost:5173',
+      'http://localhost:5174', // for local dev
       'https://suby-cyan.vercel.app',
       'https://suby-8cob.vercel.app',
     ],
@@ -43,7 +39,7 @@ mongoose
 app.use('/vendor', vendorRoutes);
 app.use('/firm', firmRoutes);
 app.use('/product', productRoutes);
-app.use('/uploads', express.static('uploads'));
+// app.use('/uploads', express.static('uploads'));
 app.use('/api/auth', authRoutes);
 app.use('/orders', orderRoutes);
 app.use('/payment', paymentRoutes);
